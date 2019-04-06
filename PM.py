@@ -8,8 +8,8 @@ PATTERN
 1.get patterns
 2.
 3.
-python PM.py -i input.hex -s 1000 > PM.txt.1
-python PM.py -i exception.txt -s 1000 > PM.txt.2
+python PM.py -i datas/input.hex -s 1000 > results/PM.txt.0
+python PM.py -i datas/exception.txt -s 1000 > results/PM.txt.0
 '''
 import numpy as np
 import matplotlib.pyplot as plt
@@ -25,7 +25,7 @@ def continuous_pattern(IPs, begin, end):
     # [start, start+c)
     patterns=[]
     for c in range(begin,end+1):
-        for start in range(0, 16-c):
+        for start in range(0, 16-c+1):
             insertion_sort_list=[]
             for IP in IPs:
                 patternIP=continuous_filter(IP[16:], start, start+c-1)
@@ -44,7 +44,7 @@ def only_pattern(IPs, c):
     # IID 16+[0,16)
     # [start, start+c)
     patterns=[]
-    for start in range(0, 16-c):
+    for start in range(0, 16-c+1):
         insertion_sort_list=[]
         for IP in IPs:
             patternIP=only_filter(IP[16:], start, start+c-1)
