@@ -10,6 +10,9 @@ PATTERN
 3.
 python PM.py -i datas/input.hex -s 1000 > results/PM.txt.0
 python PM.py -i datas/exception.txt -s 1000 > results/PM.txt.0
+
+interactive test
+python PM.py -i datas/exception.txt -s 1000
 '''
 import numpy as np
 import matplotlib.pyplot as plt
@@ -26,38 +29,40 @@ def continuous_pattern(IPs, begin, end):
     patterns=[]
     for c in range(begin,end+1):
         for start in range(0, 16-c+1):
-            insertion_sort_list=[]
+            pattern_list,pattern,count=[],'',0
             for IP in IPs:
                 patternIP=continuous_filter(IP[16:], start, start+c-1)
-                bisect.insort(insertion_sort_list, patternIP)
-            pattern,count='',0
-            for pattern_ in insertion_sort_list:
+                pattern_list.append(patternIP)
+            pattern_list.sort()
+            for pattern_ in pattern_list:
                 if pattern!=pattern_:
-                    if count>0:
+                    if count>1:
                         patterns.append([pattern, count])
                     pattern,count=pattern_,1
                 elif pattern==pattern_:
                     count+=1
-            patterns.append([pattern, count])
-    return patterns
+            if count>1:
+                patterns.append([pattern, count])
+        return patterns
 def only_pattern(IPs, c):
     # IID 16+[0,16)
     # [start, start+c)
     patterns=[]
     for start in range(0, 16-c+1):
-        insertion_sort_list=[]
+        pattern_list,pattern,count=[],'',0
         for IP in IPs:
             patternIP=only_filter(IP[16:], start, start+c-1)
-            bisect.insort(insertion_sort_list, patternIP)
-        pattern,count='',0
-        for pattern_ in insertion_sort_list:
+            pattern_list.append(patternIP)
+        pattern_list.sort()
+        for pattern_ in pattern_list:
             if pattern!=pattern_:
-                if count>0:
+                if count>1:
                     patterns.append([pattern, count])
                 pattern,count=pattern_,1
             elif pattern==pattern_:
                 count+=1
-        patterns.append([pattern, count])
+        if count>1:
+            patterns.append([pattern, count])
     return patterns
 if __name__=='__main__':
     p=argparse.ArgumentParser()
@@ -65,17 +70,25 @@ if __name__=='__main__':
     p.add_argument('--epsilon','-e',type=int,default=5,help='c for continuous range length.')
     p.add_argument('--size','-s',type=int,help='max train size')
     args=p.parse_args()
-    print('input file {} size {}.'.format(args.input, args.size))
     with open(args.input,'r') as f:
         data=f.read()
     lines=data.split('\n')
     lines.remove('')
-    IPs=[]
+    IPs,IID=[],set()
+    t0=time.time()
     for line in open(args.input,'r'):
         if line and line[0]!='#' and line[0]!='\n':
-            IPs.append(line[:-1])
+            IP=line[:-1]
+            if IP[16:] in IID:
+                continue
+            IID.add(IP[16:])
+            IPs.append(IP)
     if args.size!=None:
         IPs=IPs[:args.size]
+    print('input file {} size {}.'.format(args.input, len(IPs)))
+    print('IP use {} seconds'.format(time.time() - t0))
+
+
     t0=time.time()
     continuous_patterns=continuous_pattern(IPs, 4, 5)
     continuous_patterns.sort(key=lambda x:x[1], reverse=True)
@@ -83,6 +96,7 @@ if __name__=='__main__':
         if pattern_count[1] > 1:
             print('{} {}'.format(pattern_count[0], pattern_count[1]))
     print('continuous_pattern use {} seconds'.format(time.time() - t0))
+
 
     t0=time.time()
     only_patterns=only_pattern(IPs, 5)
