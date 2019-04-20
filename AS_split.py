@@ -12,7 +12,7 @@
             no prefix list
         2.每一个AS对应一个输出文件，包含所有IPv6地址，文件名为AS{number}.txt 首行为说明信息
         3.根据AS统计数据作图表
-    python AS_split.py -s ~/Downloads/2018-08-01-input.txt -d big_result
+    python AS_split.py -s ~/Downloads/2018-08-01-input.txt -d big_result --dat ~/Desktop/ipasn_20190402.dat
     python AS_split.py -analyze -d big_result
     python AS_split.py -s responsive-addresses.txt -d result
     python AS_split.py -analyze -d result -m 0
@@ -38,7 +38,7 @@ def read_IPs(filename,IPASN_filename,connection):
     batches,max_batch=[],2000000
     for line in open(filename,'r'):
         if not line or line[0]=='#' or line[0]=='\n': continue
-        IP=line[:-1]
+        IP=line.strip()
         AS_number,prefix_str=asndb.lookup(IP)
         if AS_number==None:
             AS_number=-1
@@ -78,13 +78,12 @@ def statistics(dirname, IP_count, connection, minimum):
     f.write('\nIPs without AS number: count={}, percentage={}\n'.format(Ncount,Ncount/(float)(IP_count)))
     f.close()
     ASN_count,current=len(sorted_list),0
-    axe_Y=[i[1] for i in sorted_list[::-1]]
-    code.interact(banner = "", local = locals())
-    '''
+    axe_Y=[]
+    
     for i in range(0,ASN_count):
         current+=sorted_list[i][1]
         axe_Y.append(current/(float)(IP_count))
-    '''
+    #code.interact(banner = "", local = locals())
     axe_X=range(1,ASN_count+1)
     fig=plt.figure()
     plt.plot(axe_X,axe_Y)
@@ -101,15 +100,33 @@ def statistics(dirname, IP_count, connection, minimum):
     print('statistics use {} seconds'.format(time.time()-t0))
     return
 
-def split_IPs(dirname, IP_count, connection, minimum):
+def split_IPs(dirname, IP_count, connection, mode, n):
     #第一行 IP_count percentage
+    print('start split_IPs:')
     t0=time.time()
     c1,c2=connection.cursor(),connection.cursor()
-    t=time.time()
+    sorted_list=[]
     for item in c1.execute('select distinct AS_number from IPs'):
         AS_number=item[0]
         IP_num=c2.execute('select count(*) from IPs where AS_number=?',(AS_number,)).fetchone()[0]
-        if IP_num<minimum:continue
+        sorted_list.append([AS_number, IP_num])
+    sorted_list.sort(key=lambda x:x[1], reverse=True)
+    if mode=='AS count':
+        target_list=sorted_list[:n]
+    elif mode=='IP percent':
+        target_list=[]
+        count=0.0
+        for item in sorted_list:
+            count+=item[1]
+            target_list.append(item)
+            if count/IP_count>=n:
+                break
+    print('tl use {} seconds'.format(time.time()-t0))
+    print('target_list len={}'.format(len(target_list)))
+    t0=time.time()
+    t=time.time()
+    for item in target_list:
+        AS_number, IP_num = item[0], item[1]
         f=open('{}/AS{}.txt'.format(dirname,AS_number),'w')
         f.write('#AS number={}, IP number={}\n'.format(AS_number,IP_num))
         IP_batches,max_batch=[],10000
@@ -126,9 +143,6 @@ def split_IPs(dirname, IP_count, connection, minimum):
     print('split_IPs use {} seconds'.format(time.time()-t0))
     return
 
-def virtualize(dirname):
-
-    return
 if __name__=='__main__':
 
     parse=argparse.ArgumentParser()
@@ -153,7 +167,7 @@ if __name__=='__main__':
     if args.analyze:
         statistics(args.dst,IP_count,connection,args.min)
     if args.split:
-        split_IPs(args.dst,IP_count,connection,args.min)
+        split_IPs(args.dst,IP_count,connection,'IP percent',0.9)
 
     connection.commit()
     connection.close()

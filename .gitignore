@@ -1,0 +1,4 @@
+*.db
+datas/*
+*.jpg
+result/*
