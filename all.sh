@@ -101,3 +101,7 @@ echo "5. Pattern Discovery"
 funPatternDiscover $1 $2 $3
 
 echo "6. Veri"
+TARDIR="$2/Target"
+RESDIR="$2/Result"
+wc -l $TARDIR > $2/targetlines.txt
+wc -l $RESDIR > $2/resultlines.txt
