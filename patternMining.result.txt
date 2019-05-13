@@ -1,0 +1,441 @@
+start
+read 29999999 IP use 24.1395308971 seconds
+2 use 503.869851112 seconds
+3 use 9.53674316406e-07 seconds
+4 use 1.19209289551e-06 seconds
+5 use 9.53674316406e-07 seconds
+6 use 441.286820889 seconds
+7 use 9.53674316406e-07 seconds
+8 use 1.19209289551e-06 seconds
+9 use 0.446945905685 seconds
+10 use 0.00164890289307 seconds
+11 use 0.00345087051392 seconds
+12 use 0.00336098670959 seconds
+13 use 380.3295362 seconds
+14 use 0.00121998786926 seconds
+15 use 0.00130414962769 seconds
+16 use 0.00314807891846 seconds
+17 use 0.0181560516357 seconds
+18 use 0.134905099869 seconds
+19 use 369.437163115 seconds
+20 use 0.140112876892 seconds
+21 use 405.803610086 seconds
+22 use 0.583980083466 seconds
+23 use 328.188070059 seconds
+24 use 3.26734900475 seconds
+25 use 310.068506956 seconds
+26 use 0.77077293396 seconds
+27 use 286.152260065 seconds
+start
+read 9999999 IP use 7.54471087456 seconds
+no experience 2xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 1
+2 use 186.802108049 seconds
+3 use 170.083135843 seconds
+4 use 152.284049988 seconds
+5 use 148.287467957 seconds
+6 use 190.834122896 seconds
+7 use 186.503021955 seconds
+8 use 186.06893611 seconds
+9 use 195.913197994 seconds
+10 use 172.620769978 seconds
+11 use 185.38340807 seconds
+13 use 166.399445057 seconds
+14 use 186.342319965 seconds
+15 use 161.171096087 seconds
+16 use 180.531203032 seconds
+17 use 156.889899015 seconds
+19 use 11.6697671413 seconds
+20 use 156.025494814 seconds
+21 use 172.474550009 seconds
+22 use 153.46767807 seconds
+23 use 178.198295832 seconds
+24 use 137.427489042 seconds
+25 use 130.330570936 seconds
+26 use 162.447008848 seconds
+27 use 240.274213076 seconds
+28 use 233.537163019 seconds
+currentBucket 28
+total use 4386.59498811 seconds
+start
+read 9999999 IP use 5.95008015633 seconds
+no experience 2xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 1
+2 use 246.72608304 seconds
+3 use 234.623497009 seconds
+4 use 233.011238098 seconds
+5 use 254.08703208 seconds
+6 use 223.951039076 seconds
+7 use 221.134612083 seconds
+8 use 226.788887978 seconds
+9 use 225.582183123 seconds
+10 use 225.092396975 seconds
+11 use 215.705260992 seconds
+13 use 182.08838892 seconds
+14 use 208.565454006 seconds
+15 use 207.578804016 seconds
+16 use 199.302855015 seconds
+17 use 192.469280005 seconds
+19 use 11.6223418713 seconds
+20 use 169.669538975 seconds
+21 use 171.619982958 seconds
+22 use 196.111315966 seconds
+23 use 175.299674988 seconds
+24 use 175.625400066 seconds
+25 use 154.406390905 seconds
+26 use 164.48720789 seconds
+27 use 270.319885015 seconds
+28 use 239.422250032 seconds
+currentBucket 28
+total use 5244.74610496 seconds
+start
+read 1387593 IP use 0.829405069351 seconds
+no experience 2x0xxxxxxxxxxxxxxxx00000xxxxxxxx 7
+8 use 29.917383194 seconds
+9 use 18.9280600548 seconds
+18 use 45.6587350368 seconds
+19 use 15.5572040081 seconds
+20 use 20.3191740513 seconds
+21 use 37.7224690914 seconds
+22 use 16.2763829231 seconds
+23 use 15.7364900112 seconds
+24 use 39.2872200012 seconds
+25 use 13.5427792072 seconds
+26 use 17.9359180927 seconds
+27 use 57.1353838444 seconds
+28 use 17.5778460503 seconds
+currentBucket 28
+total use 495.194756985 seconds
+start
+read 1387593 IP use 0.826668977737 seconds
+no experience 2x0xxxxxxxxxxxxxxxx00000xxxxxxxx 7
+8 use 19.3747730255 seconds
+9 use 41.6886248589 seconds
+18 use 15.9380729198 seconds
+19 use 35.8896119595 seconds
+20 use 15.2353169918 seconds
+21 use 15.5518331528 seconds
+22 use 34.8029251099 seconds
+23 use 21.5017969608 seconds
+24 use 13.1444280148 seconds
+25 use 36.1201028824 seconds
+26 use 17.9319639206 seconds
+27 use 42.9331860542 seconds
+28 use 31.8680250645 seconds
+currentBucket 28
+total use 449.823854923 seconds
+start
+read 9999999 IP use 6.95289707184 seconds
+no experience 2xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 1
+2 use 156.201028824 seconds
+3 use 153.424643993 seconds
+4 use 150.929713964 seconds
+5 use 149.064555883 seconds
+6 use 145.819683075 seconds
+7 use 143.119524956 seconds
+8 use 140.311449051 seconds
+9 use 137.96369791 seconds
+10 use 135.309508801 seconds
+11 use 132.682314873 seconds
+13 use 127.182406187 seconds
+14 use 124.699408054 seconds
+15 use 122.21250701 seconds
+16 use 119.863924026 seconds
+17 use 118.845636845 seconds
+19 use 11.560161829 seconds
+20 use 111.545401096 seconds
+21 use 122.177708149 seconds
+22 use 126.226718187 seconds
+23 use 123.050894976 seconds
+24 use 108.65050602 seconds
+25 use 97.0539109707 seconds
+26 use 112.98406291 seconds
+27 use 166.658307076 seconds
+28 use 154.921745062 seconds
+currentBucket 28
+total use 3337.33511901 seconds
+start
+read 9999999 IP use 5.99073505402 seconds
+no experience 2xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 1
+2 use 158.711904049 seconds
+3 use 156.082409143 seconds
+4 use 154.010559082 seconds
+5 use 152.226120949 seconds
+6 use 150.065309048 seconds
+7 use 146.514071941 seconds
+8 use 144.084333897 seconds
+9 use 141.014471054 seconds
+10 use 138.590764999 seconds
+11 use 135.901449919 seconds
+13 use 130.461014986 seconds
+14 use 128.581418991 seconds
+15 use 125.03971982 seconds
+16 use 123.178113937 seconds
+17 use 121.99023509 seconds
+19 use 11.6136679649 seconds
+20 use 115.247267008 seconds
+21 use 121.78784585 seconds
+22 use 127.171921015 seconds
+23 use 124.32810998 seconds
+24 use 113.081728935 seconds
+25 use 101.851046085 seconds
+26 use 116.340803862 seconds
+27 use 168.917366028 seconds
+28 use 155.748286009 seconds
+currentBucket 28
+total use 3409.87459517 seconds
+start
+read 1387593 IP use 0.829605817795 seconds
+no experience 2x0xxxxxxxxxxxxxxxx00000xxxxxxxx 7
+8 use 19.3197441101 seconds
+9 use 18.9583518505 seconds
+18 use 15.9507420063 seconds
+19 use 15.5596921444 seconds
+20 use 15.2163629532 seconds
+21 use 15.5441770554 seconds
+22 use 16.2328941822 seconds
+23 use 15.5541520119 seconds
+24 use 13.1309080124 seconds
+25 use 13.5100710392 seconds
+26 use 17.9309411049 seconds
+27 use 28.6146149635 seconds
+28 use 17.5631289482 seconds
+currentBucket 28
+total use 301.586046934 seconds
+start
+read 1387593 IP use 0.820501089096 seconds
+no experience 2x0xxxxxxxxxxxxxxxx00000xxxxxxxx 7
+8 use 19.2837629318 seconds
+9 use 18.989153862 seconds
+18 use 15.8747091293 seconds
+19 use 15.5038321018 seconds
+20 use 15.1702210903 seconds
+21 use 15.5470519066 seconds
+22 use 16.2454738617 seconds
+23 use 15.5952370167 seconds
+24 use 13.0912649632 seconds
+25 use 13.4958300591 seconds
+26 use 17.8426158428 seconds
+27 use 28.4761939049 seconds
+28 use 17.4768881798 seconds
+currentBucket 28
+total use 300.48526001 seconds
+read 9999999 IP use 6.19104409218 seconds
+no experience 2xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 1
+2 use 160.115350962 seconds
+3 use 157.162158012 seconds
+4 use 155.353213787 seconds
+5 use 152.264465094 seconds
+6 use 149.847280025 seconds
+7 use 147.133989096 seconds
+8 use 144.282345057 seconds
+9 use 141.857599974 seconds
+10 use 139.132230043 seconds
+11 use 136.666632175 seconds
+13 use 131.412674904 seconds
+14 use 131.198340178 seconds
+15 use 130.651068211 seconds
+16 use 125.402792931 seconds
+17 use 123.824759007 seconds
+19 use 11.8902928829 seconds
+20 use 121.63993001 seconds
+21 use 126.030019045 seconds
+22 use 131.039191961 seconds
+23 use 128.408743143 seconds
+24 use 118.836739063 seconds
+25 use 105.567420959 seconds
+26 use 160.233725071 seconds
+27 use 215.797361851 seconds
+28 use 182.057034016 seconds
+currentBucket 28
+total use 3574.61117887 seconds
+read 9999999 IP use 5.96109700203 seconds
+read 1615 IP use 0.00099515914917 seconds
+no experience 260090002xxxxx0000xxxxxxxxxxxxx1 14
+currentRange 8388608 < budget 10000000
+changed
+27 use 55.3721380234 seconds
+currentRange 0 < budget 1000000
+changed
+currentRange 0 < budget 100000
+currentRange 0 < budget 10000
+total use 55.5956552029 seconds
+read 1615 IP use 0.00102519989014 seconds
+using experience 0.0607440471649 seconds
+currentRange 8388608 < budget 10000000
+changed
+27 use 54.2337539196 seconds
+currentRange 0 < budget 1000000
+changed
+currentRange 0 < budget 100000
+currentRange 0 < budget 10000
+total use 54.5097858906 seconds
+read 48 IP use 6.50882720947e-05 seconds
+no experience 2a0223500005010xxxx00000xxxxxxxx 20
+currentRange 0 < budget 10000000
+changed
+currentRange 0 < budget 1000000
+currentRange 0 < budget 100000
+currentRange 0 < budget 10000
+total use 0.00427412986755 seconds
+read 48 IP use 6.38961791992e-05 seconds
+using experience 0.0464749336243 seconds
+currentRange 0 < budget 10000000
+changed
+currentRange 0 < budget 1000000
+currentRange 0 < budget 100000
+currentRange 0 < budget 10000
+total use 0.0503079891205 seconds
+read 1615 IP use 0.000986814498901 seconds
+no experience 260090002xxxxx0000xxxxxxxxxxxxx1 14
+currentRange 8388608 < budget 10000000
+changed
+read 2257 IP use 0.00153517723083 seconds
+no experience 260090002xxxxx0000xxxxxxxxxxxxx1 14
+currentRange 65536 < budget 1000000
+changed
+currentRange 65536 < budget 100000
+currentBucket 28
+total use 1.18529510498 seconds
+read 2257 IP use 0.00150585174561 seconds
+using experience 0.067862033844 seconds
+currentRange 65536 < budget 1000000
+changed
+currentRange 65536 < budget 100000
+currentBucket 28
+total use 1.24547290802 seconds
+read 69 IP use 7.29560852051e-05 seconds
+no experience 2a0223500005010xxxx00000xxxxxxxx 20
+currentRange 0 < budget 1000000
+changed
+currentRange 0 < budget 100000
+currentRange 0 < budget 10000
+total use 0.00601696968079 seconds
+read 69 IP use 6.48498535156e-05 seconds
+using experience 0.0461089611053 seconds
+currentRange 0 < budget 1000000
+changed
+currentRange 0 < budget 100000
+currentRange 0 < budget 10000
+total use 0.051600933075 seconds
+read 2229 IP use 0.00135588645935 seconds
+no experience 260090002xxxxx0000xxxxxxxxxxxxx1 14
+currentRange 65536 < budget 1000000
+changed
+read 70 IP use 7.29560852051e-05 seconds
+no experience 2a0223500005010xxxx00000xxxxxxxx 20
+currentRange 0 < budget 1000000
+changed
+read 2214 IP use 0.00135397911072 seconds
+no experience 260090002xxxxx0000xxxxxxxxxxxxx1 14
+currentRange 65536 < budget 1000000
+changed
+currentRange 65536 < budget 100000
+currentBucket 28
+total use 1.17392611504 seconds
+read 68 IP use 0.000422954559326 seconds
+no experience 2a0223500005010xxxx00000xxxxxxxx 20
+currentRange 0 < budget 1000000
+changed
+currentRange 0 < budget 100000
+currentRange 0 < budget 10000
+total use 0.00619292259216 seconds
+read 2237 IP use 0.0013530254364 seconds
+no experience 260090002xxxxx0000xxxxxxxxxxxxx1 14
+currentRange 65536 < budget 1000000
+changed
+currentRange 65536 < budget 100000
+currentBucket 28
+total use 1.18604397774 seconds
+read 42 IP use 5.50746917725e-05 seconds
+no experience 2a0223500005010xxxx00000xxxxxxxx 20
+currentRange 0 < budget 1000000
+changed
+currentRange 0 < budget 100000
+currentRange 0 < budget 10000
+total use 0.00351405143738 seconds
+read 2229 IP use 0.00144290924072 seconds
+no experience 260090002xxxxx0000xxxxxxxxxxxxx1 14
+currentRange 65536 < budget 1000000
+changed
+currentRange 65536 < budget 100000
+currentBucket 28
+total use 1.18216514587 seconds
+read 33 IP use 5.10215759277e-05 seconds
+no experience 2a0223500005010xxxx00000xxxxxxxx 20
+currentRange 0 < budget 1000000
+changed
+currentRange 0 < budget 100000
+currentRange 0 < budget 10000
+total use 0.00298094749451 seconds
+read 9999999 IP use 5.92743992805 seconds
+no experience 2xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 1
+2 use 159.542633057 seconds
+3 use 157.563016176 seconds
+4 use 155.322366953 seconds
+5 use 152.406926155 seconds
+6 use 150.08208704 seconds
+7 use 147.494184017 seconds
+8 use 144.834372044 seconds
+9 use 142.206949949 seconds
+10 use 139.46195507 seconds
+11 use 136.886061907 seconds
+13 use 131.529283047 seconds
+14 use 129.134469032 seconds
+15 use 126.526078939 seconds
+16 use 124.295471907 seconds
+17 use 123.193156958 seconds
+19 use 11.7231731415 seconds
+20 use 114.885580778 seconds
+21 use 121.129089117 seconds
+22 use 126.94786191 seconds
+23 use 124.612387896 seconds
+24 use 113.615720987 seconds
+25 use 102.203821898 seconds
+26 use 116.890719175 seconds
+27 use 170.046185017 seconds
+28 use 156.091527939 seconds
+currentBucket 28
+total use 3424.96712399 seconds
+read 9999999 IP use 6.05832195282 seconds
+read 1387593 IP use 0.863348007202 seconds
+no experience 2x0xxxxxxxxxxxxxxxx00000xxxxxxxx 7
+8 use 19.5269229412 seconds
+9 use 19.0557689667 seconds
+18 use 15.9716861248 seconds
+19 use 15.7773098946 seconds
+20 use 15.6974599361 seconds
+21 use 16.2978799343 seconds
+22 use 17.0437190533 seconds
+read 9999999 IP use 6.02631211281 seconds
+using experience 113.241142988 seconds
+3 use 157.377000809 seconds
+4 use 153.638645887 seconds
+5 use 151.220732212 seconds
+7 use 146.147889137 seconds
+14 use 128.154826164 seconds
+15 use 125.617062807 seconds
+16 use 123.40277791 seconds
+17 use 121.933874846 seconds
+18 use 1.03649187088 seconds
+20 use 115.154868126 seconds
+21 use 121.472060919 seconds
+22 use 127.420109034 seconds
+23 use 124.915705919 seconds
+24 use 113.253298044 seconds
+25 use 102.342404127 seconds
+26 use 117.622766972 seconds
+27 use 170.062892914 seconds
+28 use 156.888082027 seconds
+currentBucket 28
+total use 2458.84016895 seconds
+read 1387593 IP use 0.830859899521 seconds
+using experience 15.7223858833 seconds
+21 use 15.6257369518 seconds
+22 use 16.3503689766 seconds
+23 use 15.7138490677 seconds
+24 use 13.2233381271 seconds
+25 use 14.3077530861 seconds
+26 use 18.1700630188 seconds
+27 use 28.7287890911 seconds
+28 use 17.5535588264 seconds
+currentBucket 28
+total use 224.307699919 seconds

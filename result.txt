@@ -1,0 +1,56 @@
+1. alive detection
+zmap scanning /home/tony/datas/2019-05-01/2019_h_10000.txt, store result in /home/tony/datas/2019-05-01/Test/zmap_2019_h_10000.txt
+zmap_scanning use 9.37137007713 seconds
+find 2405 alive IPs writing to /home/tony/datas/2019-05-01/Test/alive.txt file
+2. apd
+/home/tony/datas/2019-05-01/Test
+create index use 0.148097991943 seconds
+zmap scanning /home/tony/datas/2019-05-01/Test/APD/target-96.txt, store result in /home/tony/datas/2019-05-01/Test/APD/result-96.txt
+zmap scanning use 9.38213086128 seconds
+zmap scanning /home/tony/datas/2019-05-01/Test/APD/target-92.txt, store result in /home/tony/datas/2019-05-01/Test/APD/result-92.txt
+zmap scanning use 9.39646601677 seconds
+zmap scanning /home/tony/datas/2019-05-01/Test/APD/target-88.txt, store result in /home/tony/datas/2019-05-01/Test/APD/result-88.txt
+zmap scanning use 9.43770503998 seconds
+zmap scanning /home/tony/datas/2019-05-01/Test/APD/target-84.txt, store result in /home/tony/datas/2019-05-01/Test/APD/result-84.txt
+zmap scanning use 9.3835170269 seconds
+skip at 80
+skip at 76
+skip at 72
+skip at 68
+skip at 64
+skip at 60
+skip at 56
+zmap scanning /home/tony/datas/2019-05-01/Test/APD/target-52.txt, store result in /home/tony/datas/2019-05-01/Test/APD/result-52.txt
+zmap scanning use 9.41300415993 seconds
+skip at 48
+skip at 44
+skip at 40
+skip at 36
+skip at 32
+alread scan all prefixed from 32 to 96
+3. non-aliased
+4. AS split
+create index use 0.130043983459 seconds
+statistics use 0.382458925247 seconds
+start split_IPs:
+tl use 0.000658988952637 seconds
+target_list len=5
+file ASN 16509, count 2196, use 0.00277304649353 seconds
+file ASN 51468, count 66, use 0.000188827514648 seconds
+file ASN 202144, count 22, use 0.000116109848022 seconds
+file ASN 20940, count 10, use 7.5101852417e-05 seconds
+file ASN 13335, count 8, use 6.89029693604e-05 seconds
+split_IPs use 0.00324487686157 seconds
+5. Pattern Discovery
+start
+read 8 IP use 3.88622283936e-05 seconds
+currentRange 16777216 < budget 100000000
+currentRange 0 < budget 10000000
+currentRange 0 < budget 1000000
+currentRange 0 < budget 100000
+currentRange 0 < budget 10000
+total use 543.502260923 seconds
+file /home/tony/datas/2019-05-01/Test/AS/AS13335.hex.Target.10000 size is 528.0 MB, file /home/tony/datas/2019-05-01/Test/AS/AS13335.hex size is 0.000280380249023 MB
+Y to continue, no to exit, DB to use database
+file /home/tony/datas/2019-05-01/Test/AS/AS13335.hex.Target.100000 size is 528.0 MB, file /home/tony/datas/2019-05-01/Test/AS/AS13335.hex size is 0.000280380249023 MB
+Y to continue, no to exit, DB to use database

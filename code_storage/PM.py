@@ -10,7 +10,7 @@ PATTERN
 3.
 python PM.py -i datas/input.hex -s 1000 > results/PM.txt.0
 python PM.py -i datas/exception.txt -s 1000 > results/PM.txt.0
-
+python PM.py -i ~/datas/2019-04-12/AS_result/9146_REST.hex > ~/datas/2019-04-12/AS_result/9146_REST.pattern
 interactive test
 python PM.py -i datas/exception.txt -s 1000
 '''
@@ -194,32 +194,21 @@ if __name__=='__main__':
     IP_count=len(IPs)
     print('input file {} size {}.'.format(args.input, IP_count))
     print('IP use {} seconds'.format(time.time() - t0))
-    '''
+    
     t0=time.time()
     continuous_patterns=continuous_pattern(IPs, 4, 5)
     continuous_patterns.sort(key=lambda x:x[1], reverse=True)
-    for pattern_count in continuous_patterns:
-        if pattern_count[1] > 1:
-            print('{} {}'.format(pattern_count[0], pattern_count[1]))
+    #for pattern_count in continuous_patterns:
+     #   if pattern_count[1] > 1:
+      #      print('{} {}'.format(pattern_count[0], pattern_count[1]))
     print('continuous_pattern use {} seconds'.format(time.time() - t0))
     '''
-
-    t0=time.time()
-    only_patterns=only_pattern(IPs, 5)
-    only_patterns.sort(key=lambda x:x[1], reverse=True)
-    '''
-    for pattern_count in only_patterns:
-        if pattern_count[1] > 1:
-            print('{} {}'.format(pattern_count[0], pattern_count[1]))
-    '''
-    print('only_pattern use {} seconds'.format(time.time() - t0))
-    '''
         get top 10 pattern
-    
+    '''
     t0=time.time()
     continuous_patterns=[i[0] for i in continuous_patterns[:100]]
-    for pattern in continuous_patterns:
-        pattern=get_specify(pattern, IPs)
+    #for pattern in continuous_patterns:
+     #   pattern=get_specify(pattern, IPs)
     eliminate_covering(continuous_patterns)
     classify_list=classify(continuous_patterns, IPs)
     for i, pattern in enumerate(continuous_patterns):
@@ -228,7 +217,11 @@ if __name__=='__main__':
     remain_count=len(classify_list[-1])
     print('remain count={}, percentage={}'.format(remain_count, remain_count/(float)(IP_count)))
     print('classify use {} seconds'.format(time.time() - t0))
-    '''
+    exit(0)
+    t0=time.time()
+    only_patterns=only_pattern(IPs, 10)
+    only_patterns.sort(key=lambda x:x[1], reverse=True)
+    print('only_pattern use {} seconds'.format(time.time() - t0))
     t0=time.time()
     remain_pattern_count=150
     print('total {} patterns, use {} patterns'.format(len(only_patterns), remain_pattern_count))

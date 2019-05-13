@@ -1,3 +1,244 @@
+sudo bash all.sh /home/tony/datas/2019-05-01/Test.txt /home/tony/datas/2019-05-01/test 2402:f000:4:38:808::382
+sudo bash all.sh /home/tony/datas/2019-05-01/2019-05-01-input.txt /home/tony/datas/2019-05-01/Main 2402:f000:4:38:808::382 4
+sudo python patternMining.py --experience=False
+sudo bash all.sh /home/tony/datas/2019-05-01/2019-05-01-input.txt /home/tony/datas/2019-05-01/Main 2402:f000:4:38:808::382 5
+time sudo python patternMining.py --read /home/tony/datas/2019-05-01/Main/AS/AS16509.hex --write /home/tony/datas/2019-05-01/Main/AS/AS16509.hex.target.noexperience --budgets 10000 100000 1000000 10000000 --depth 4 --experience=False
+
+mining /home/tony/datas/2019-05-01/Main/AS/AS16509.hex
+Traceback (most recent call last):
+  File "patternMining.py", line 393, in <module>
+    process(IPs, args.budgets, args.depth, args.write)
+  File "patternMining.py", line 321, in process
+    currentRange, skipped = expand(buckets[currentBucket][0], buckets, currentRange)
+  File "patternMining.py", line 136, in expand
+    bestBegin, patternIndex, patternCount = findBestBegin(IPs, array, maxLength)
+  File "patternMining.py", line 112, in findBestBegin
+    pattern_Index[v[0]] = -1    
+MemoryError
+
+real	59m30.542s
+user	59m22.755s
+sys	0m5.508s
+
+
+一键化 预算 10000 100000 1000000 10000000
+两种预测方式
+sudo bash all.sh /home/tony/datas/2019-05-01/2019-05-01-input.txt /home/tony/datas/2019-05-01/Main 2402:f000:4:38:808::382
+
+python patternMining.py --read /home/tony/datas/2019-05-01/Test/AS/AS13335.hex --write /home/tony/datas/2019-05-01/Test/AS/AS13335.target_a --budgets 1000 10000 100000 1000000 10000000 100000000 --depth 4
+
+bash all.sh /home/tony/datas/2019-05-01/2019_h_10000.txt /home/tony/datas/2019-05-01/Test 2402:f000:4:38:808::382
+sudo python AliveDetection.py --input=/home/tony/datas/2019-05-01/2019_h_10000.txt --filename=alive.txt --dir=/home/tony/datas/2019-05-01/Alive --IPv6=2402:f000:4:38:808::382
+
+system
+2019-05-01-input.txt
+活跃地址探测
+getAlive -> alive.txt
+APD.py alive.txt
+aliased.txt
+
+aliases-lpm.py
+non-aliased.txt
+
+AS_split
+
+for every file in directory:
+	patternMining
+-> predict files
+	dedup
+collect hit rate
+
+
+def stat(lines, dic_):
+	for line in lines:
+		s = line.strip()
+		if s=='':continue
+		index=s.find('/')+1
+		length=int(s[index:])
+		if length not in dic_:
+			dic_[length] = 1
+		else:
+			dic_[length] += 1
+sudo zmap --ipv6-target-file=2019-05-01-input.txt --ipv6-source-ip=2402:f000:4:38:808::382 -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o 9146_alive.txt
+存活率 20.26%
+
+对AS6057作探测
+cat AS6057.txt | ipv6-addr2hex > AS6057.hex 获得hex
+
+进行预测
+python patternMining.py --read /home/tony/datas/2019-05-01/AS/AS6057.hex --write /home/tony/datas/2019-05-01/AS/6057_target.hex --budgets 1000 10000 100000 1000000 10000000 100000000 --depth 4
+
+由于数量过大，略
+python Deduplication.py -A /home/tony/datas/2019-05-01/AS/6057_target.hex.100000000 -B /home/tony/datas/2019-05-01/AS/AS6057.hex -C /home/tony/datas/2019-05-01/AS/6057_dedup.hex.100000000
+cat 9146_dedup.hex.10000 | ipv6-hex2addr > 9146_target.txt.10000
+sudo zmap --ipv6-target-file=9146_target.txt.10000 --ipv6-source-ip=2402:f000:4:38:808::382 -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o 9146_result.txt.10000
+
+python Deduplication.py -A /home/tony/datas/2019-05-01/AS/6057_target.hex.10000000 -B /home/tony/datas/2019-05-01/AS/AS6057.hex -C /home/tony/datas/2019-05-01/AS/6057_dedup.hex.10000000
+cat 6057_dedup.hex.10000000 | ipv6-hex2addr > 6057_dedup.txt.10000000
+sudo zmap --ipv6-target-file=6057_dedup.txt.10000000 --ipv6-source-ip=2402:f000:4:38:808::382 -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o 6057_result.txt.10000000
+0.07%
+
+python Deduplication.py -A /home/tony/datas/2019-05-01/AS/6057_target.hex.1000000 -B /home/tony/datas/2019-05-01/AS/AS6057.hex -C /home/tony/datas/2019-05-01/AS/6057_dedup.hex.1000000
+cat 6057_dedup.hex.1000000 | ipv6-hex2addr > 6057_dedup.txt.1000000
+sudo zmap --ipv6-target-file=6057_dedup.txt.1000000 --ipv6-source-ip=2402:f000:4:38:808::382 -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o 6057_result.txt.1000000
+0.10%
+
+python Deduplication.py -A /home/tony/datas/2019-05-01/AS/6057_target.hex.100000 -B /home/tony/datas/2019-05-01/AS/AS6057.hex -C /home/tony/datas/2019-05-01/AS/6057_dedup.hex.100000
+cat 6057_dedup.hex.100000 | ipv6-hex2addr > 6057_dedup.txt.100000
+sudo zmap --ipv6-target-file=6057_dedup.txt.100000 --ipv6-source-ip=2402:f000:4:38:808::382 -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o 6057_result.txt.100000
+0.13%
+
+python Deduplication.py -A /home/tony/datas/2019-05-01/AS/6057_target.hex.10000 -B /home/tony/datas/2019-05-01/AS/AS6057.hex -C /home/tony/datas/2019-05-01/AS/6057_dedup.hex.10000
+cat 6057_dedup.hex.10000 | ipv6-hex2addr > 6057_dedup.txt.10000
+sudo zmap --ipv6-target-file=6057_dedup.txt.10000 --ipv6-source-ip=2402:f000:4:38:808::382 -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o 6057_result.txt.10000
+0.13%
+
+wc -l 6057_dedup.txt.10000 6057_dedup.txt.100000 6057_dedup.txt.1000000 6057_dedup.txt.10000000
+    33286 6057_dedup.txt.10000
+    67294 6057_dedup.txt.100000
+   602848 6057_dedup.txt.1000000
+  6734152 6057_dedup.txt.10000000
+  7437580 total
+wc -l 6057_result.txt.10000 6057_result.txt.100000 6057_result.txt.1000000 6057_result.txt.10000000
+    43 6057_result.txt.10000
+    89 6057_result.txt.100000
+   621 6057_result.txt.1000000
+  4565 6057_result.txt.10000000
+  5318 total
+
+================
+wc -l 9146_target.txt.10000 9146_target.txt.100000 9146_target.txt.1000000 9146_target.txt.10000000 9146_target.txt.100000000
+      2332 9146_target.txt.10000
+     29484 9146_target.txt.100000
+    424172 9146_target.txt.1000000
+   6524222 9146_target.txt.10000000
+  91411007 9146_target.txt.100000000
+  98391217 total
+wc -l 9146_result.txt.10000 9146_result.txt.100000 9146_result.txt.1000000 9146_result.txt.10000000 9146_result.txt.100000000
+      2 9146_result.txt.10000
+     27 9146_result.txt.100000
+    684 9146_result.txt.1000000
+   7805 9146_result.txt.10000000
+  24124 9146_result.txt.100000000
+  32617 total
+预测地址标准化
+python Deduplication.py -A /home/tony/datas/2019-05-01/AS/9146_target.hex.10000 -B /home/tony/datas/2019-05-01/AS/AS9146.hex -C /home/tony/datas/2019-05-01/AS/9146_dedup.hex.10000
+cat 9146_dedup.hex.10000 | ipv6-hex2addr > 9146_target.txt.10000
+sudo zmap --ipv6-target-file=9146_target.txt.10000 --ipv6-source-ip=2402:f000:4:38:808::382 -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o 9146_result.txt.10000
+0.08%
+
+python Deduplication.py -A /home/tony/datas/2019-05-01/AS/9146_target.hex.100000 -B /home/tony/datas/2019-05-01/AS/AS9146.hex -C /home/tony/datas/2019-05-01/AS/9146_dedup.hex.100000
+cat 9146_dedup.hex.100000 | ipv6-hex2addr > 9146_target.txt.100000
+sudo zmap --ipv6-target-file=9146_target.txt.100000 --ipv6-source-ip=2402:f000:4:38:808::382 -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o 9146_result.txt.100000
+0.09%
+
+python Deduplication.py -A /home/tony/datas/2019-05-01/AS/9146_target.hex.1000000 -B /home/tony/datas/2019-05-01/AS/AS9146.hex -C /home/tony/datas/2019-05-01/AS/9146_dedup.hex.1000000
+cat 9146_dedup.hex.1000000 | ipv6-hex2addr > 9146_target.txt.1000000
+sudo zmap --ipv6-target-file=9146_target.txt.1000000 --ipv6-source-ip=2402:f000:4:38:808::382 -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o 9146_result.txt.1000000
+0.16%
+
+python Deduplication.py -A /home/tony/datas/2019-05-01/AS/9146_target.hex.10000000 -B /home/tony/datas/2019-05-01/AS/AS9146.hex -C /home/tony/datas/2019-05-01/AS/9146_dedup.hex.10000000
+cat 9146_dedup.hex.10000000 | ipv6-hex2addr > 9146_target.txt.10000000
+sudo zmap --ipv6-target-file=9146_target.txt.10000000 --ipv6-source-ip=2402:f000:4:38:808::382 -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o 9146_result.txt.10000000
+0.12%
+
+python Deduplication.py -A /home/tony/datas/2019-05-01/AS/9146_target.hex.100000000 -B /home/tony/datas/2019-05-01/AS/AS9146.hex -C /home/tony/datas/2019-05-01/AS/9146_dedup.hex.100000000
+cat 9146_dedup.hex.100000000 | ipv6-hex2addr > 9146_target.txt.100000000
+sudo zmap --ipv6-target-file=9146_target.txt.100000000 --ipv6-source-ip=2402:f000:4:38:808::382 -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o 9146_result.txt.100000000
+0.03%
+
+cat AS9146.txt | ipv6-addr2hex > AS9146.hex
+python patternMining.py --read /home/tony/datas/2019-05-01/AS/AS9146.hex --write /home/tony/datas/2019-05-01/AS/9146_target.hex --budgets 1000 10000 100000 1000000 10000000 100000000 --depth 4
+python patternMining.py --read /home/tony/datas/2019-05-01/AS/AS9146.hex --write /home/tony/datas/2019-05-01/AS/9146_target_10w.hex --budget 100000 --depth 2
+python AS_split.py --src /home/tony/datas/2019-05-01/2019-05-01-non-aliased.txt --dst /home/tony/datas/2019-05-01/AS --dat /home/tony/Desktop/ipasn_20190402.dat
+python AS_split.py -analyze --min 0 --dst /home/tony/datas/2019-05-01/AS
+python AS_split.py -split --dst /home/tony/datas/2019-05-01/AS --mode AS --value 10
+统计前缀
+1145702 aliased
+253763462 non-aliased
+254909164
+python aliases-lpm.py -a /home/tony/datas/2019-05-01/aliased_prefixes.txt -i /home/tony/datas/2019-05-01/2019-05-01-input.txt --non-aliased-result /home/tony/datas/2019-05-01/2019-05-01-non-aliased.txt --aliased-result /home/tony/datas/2019-05-01/2019-05-01-aliased.txt
+
+254000000 1850.83821201 seconds
+python APD.py -extract -i /home/tony/datas/2019-05-01/2019-05-01-input.txt -db /home/tony/datas/2019-05-01/APD.db
+python APD.py --detectOne --database /home/tony/datas/2019-05-01/APD.db --threshold 100 --IPv6 2402:f000:4:38:808::382 --directory /home/tony/datas/2019-05-01/tempdir
+python APD.py -output --database /home/tony/datas/2019-05-01/APD.db > /home/tony/datas/2019-05-01/aliased_prefixes.txt
+
+python APD.py -extract -i /home/tony/datas/2019-05-01/2019_h_10000.txt -db /home/tony/datas/2019-05-01/test.db
+python APD.py --detectOne --database /home/tony/datas/2019-05-01/test.db --threshold 2 --IPv6 2402:f000:4:38:808::382 --directory /home/tony/datas/2019-05-01/smalltest
+
+时间
+78800000 660.336174965
+254000000 1783.37809205
+254000000 1819.1710639 seconds
+indexing use 1193.42084002 seconds
+254909164 use 462.430617809 seconds
+254909164 use 468.080968857 seconds
+254909164 use 1260.32825899 seconds
+为05-01去别名
+python APD.py -extract -i /home/tony/datas/2019-05-01/2019-05-01-input.txt -db /home/tony/datas/2019-05-01/APD.db -t 1000 > /home/tony/datas/2019-05-01/prefix_above_1000.txt
+python APD.py -extract -i /home/tony/datas/2019-05-01/2019-05-01-input.txt -db /home/tony/datas/2019-05-01/APD.db -t 1000
+
+python APD.py --test -db /home/tony/datas/2019-05-01/APD.db
+==============
+python AS_split.py -s ~/datas/2019-05-01/2019-05-01-input.txt -d ~/datas/2019-05-01/database --dat ~/Desktop/ipasn_20190402.dat
+python AS_split.py -analyze -d ~/datas/2019-05-01/database
+python AS_split.py -split -d ~/datas/2019-05-01/database
+去重
+python Deduplication.py -A results/9146_target_.hex -B ~/datas/2019-04-12/AS_result/9146_REST.hex -C results/9146.dedup.hex
+
+python Deduplication.py -A results/9146_5-1_.hex -B ~/datas/2019-05-01/database/9146.tail.1M.hex -C results/9146_5-1.dedup.hex
+转addr
+cat results/9146.dedup.hex | ipv6-hex2addr > results/9146.scanTarget.txt
+cat results/9146_5-1.dedup.hex | ipv6-hex2addr > results/9146_5-1.scanTarget.txt
+扫描
+sudo zmap --ipv6-target-file=results/9146_5-1.scanTarget.txt --ipv6-source-ip=2402:f000:9:8401:e4fd:ef33:c041:136e -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o results/9146.5-1_scanResult.txt
+sudo zmap --ipv6-target-file=results/9146.scanTarget.txt --ipv6-source-ip=2402:f000:9:8401:e4fd:ef33:c041:136e -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o results/9146.scanResult.txt
+sudo zmap --ipv6-target-file=results/9146.scanTarget.txt --ipv6-source-ip=2402:f000:9:8401:e4fd:ef33:c041:136e -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o results/9146.scanResult.txt
+测试是否存活
+cat ~/datas/2019-04-12/AS_result/9146_REST.hex | ipv6-hex2addr > results/9146.REST.txt
+sudo zmap --ipv6-target-file=results/9146.REST.txt --ipv6-source-ip=2402:f000:9:8401:e4fd:ef33:c041:136e -M icmp6_echoscan -f saddr,daddr,ipid,ttl,timestamp_str -O json -o results/9146.REST.alive.txt
+model
+
+列表A，B
+循环
+完全展开法：
+展开直到：
+	每一项都
+	maxN==1
+避免排序：
+	保证maxN=1的连续
+
+算法：
+列表A, B
+初始化：A=[[*, IPs]], B=[[item,density,range]]
+循环：
+	range=calculate_range(B)
+	if range <= budget:
+		goto end
+	x=B[0]
+	newitem = expand(x)
+	A,B.append(newitem)
+	A,B.remove(x)
+	
+优化
+显著的pattern识别：
+减少循环次数，提升预测效果
+算法无需改变，初始化改变
+
+
+总共32位
+1。消除确定位 剩余32～16
+2。统计4位的
+	最坏情况，32位都是随机的，此时找出密度最大的区域
+
+3。
+
+找出现最多的一位，重复16次(或者限定百分比)
+扫描缩小范围
+比较范围和预算
+优先缩小密度小的pattern
+
 eui and lowbytes:
 6057.hex 71M		2.4G not able to process in memory
 9146.hex 25M		871M able to process in memory

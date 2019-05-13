@@ -7,16 +7,12 @@
         文件名：包含IPv6地址 #为注释
         目标文件夹名：若不存在则创建
     输出：
-        1.AS统计数据
-            AS number，IP count，IP percentage 
-            no prefix list
-        2.每一个AS对应一个输出文件，包含所有IPv6地址，文件名为AS{number}.txt 首行为说明信息
-        3.根据AS统计数据作图表
-    python AS_split.py -s ~/Downloads/2018-08-01-input.txt -d big_result --dat ~/Desktop/ipasn_20190402.dat
-    python AS_split.py -analyze -d big_result
-    python AS_split.py -s responsive-addresses.txt -d result
-    python AS_split.py -analyze -d result -m 0
-    python AS_split.py -split -d result
+        1.生成数据库
+            python AS_split.py --src [filename] --dst [dirname] --dat ipasn_20190402.dat
+        2.统计比例
+            python AS_split.py -analyze --min [min] --dst [dirname]
+        3.提取数据
+            python AS_split.py -split --dst [dirname] --mode [AS] --value 4
 '''
 import pyasn,argparse,os,time,code,sqlite3,sys
 import matplotlib.pyplot as plt
@@ -24,14 +20,11 @@ import numpy as np
 
 def read_IPs(filename,IPASN_filename,connection):
     '''
-        不去重
-        忽略#号行
-        ASN -1表示IPASN无法分类的IP地址
+        不去重,忽略#号行,ASN -1表示IPASN无法分类的IP地址
     '''
     c=connection.cursor()
     c.execute('''DROP TABLE IF EXISTS IPs''')
-    c.execute('''create table IPs(
-                    address TEXT(41),AS_number INTEGER(8))''')
+    c.execute('''create table IPs(address TEXT(41),AS_number INTEGER(8))''')
     asndb=pyasn.pyasn(IPASN_filename)
     t0=time.time()
     IP_count=0
@@ -83,7 +76,7 @@ def statistics(dirname, IP_count, connection, minimum):
     for i in range(0,ASN_count):
         current+=sorted_list[i][1]
         axe_Y.append(current/(float)(IP_count))
-    #code.interact(banner = "", local = locals())
+    #code.interact(banner = "", local = dict(globals(), **locals()))
     axe_X=range(1,ASN_count+1)
     fig=plt.figure()
     plt.plot(axe_X,axe_Y)
@@ -111,9 +104,10 @@ def split_IPs(dirname, IP_count, connection, mode, n):
         IP_num=c2.execute('select count(*) from IPs where AS_number=?',(AS_number,)).fetchone()[0]
         sorted_list.append([AS_number, IP_num])
     sorted_list.sort(key=lambda x:x[1], reverse=True)
-    if mode=='AS count':
+    if mode=='AS':
+        n = (int)(n)
         target_list=sorted_list[:n]
-    elif mode=='IP percent':
+    elif mode=='percent':
         target_list=[]
         count=0.0
         for item in sorted_list:
@@ -152,12 +146,14 @@ if __name__=='__main__':
     parse.add_argument('--dst','-d',type=str,help='result directory name without /')
     parse.add_argument('--dat',default='ipasn_20190402.dat',type=str,help='IPASN Data File, see details at https://github.com/hadiasghari/pyasn.')
     parse.add_argument('--min','-m',default=100000,type=int,help='AS IP min count.')
+    parse.add_argument('--mode',default='percent',type=str,help='percent|AS')
+    parse.add_argument('--value',default=0.9,type=float,help='percent|AS')
     args=parse.parse_args()
     if args.dst==None:
         exit(0)
     if not os.path.exists(args.dst):
         os.mkdir(args.dst)
-    connection=sqlite3.connect('{}/test.db'.format(args.dst))
+    connection=sqlite3.connect('{}/AS_split.db'.format(args.dst))
 
     # read IP and use pyasn-> store to test.db.IPs (address,AS_number)
     if args.src!=None:
@@ -167,7 +163,8 @@ if __name__=='__main__':
     if args.analyze:
         statistics(args.dst,IP_count,connection,args.min)
     if args.split:
-        split_IPs(args.dst,IP_count,connection,'IP percent',0.9)
+        #split_IPs(args.dst,IP_count,connection,'IP percent',0.9)
+        split_IPs(args.dst,IP_count,connection, args.mode, args.value)
 
     connection.commit()
     connection.close()
