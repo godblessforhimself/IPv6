@@ -1,4 +1,5 @@
 IPv6地址空间探测工具：认为熵最低的位包含更密集的活跃地址，进而缩小探测范围，增大命中率。
+Song, Guanglei, et al. "Towards the Construction of Global IPv6 Hitlist and Efficient Probing of IPv6 Address Space." 2020 IEEE/ACM 28th International Symposium on Quality of Service (IWQoS). IEEE, 2020.
 
 sudo bash all.sh /home/tony/datas/2019-05-01/Test.txt /home/tony/datas/2019-05-01/test 2402:f000:4:38:808::382
 sudo bash all.sh /home/tony/datas/2019-05-01/2019-05-01-input.txt /home/tony/datas/2019-05-01/Main 2402:f000:4:38:808::382 4
