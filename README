@@ -1,3 +1,5 @@
+IPv6地址空间探测工具：认为熵最低的位包含更密集的活跃地址，进而缩小探测范围，增大命中率。
+
 sudo bash all.sh /home/tony/datas/2019-05-01/Test.txt /home/tony/datas/2019-05-01/test 2402:f000:4:38:808::382
 sudo bash all.sh /home/tony/datas/2019-05-01/2019-05-01-input.txt /home/tony/datas/2019-05-01/Main 2402:f000:4:38:808::382 4
 sudo python patternMining.py --experience=False
@@ -5,16 +7,7 @@ sudo bash all.sh /home/tony/datas/2019-05-01/2019-05-01-input.txt /home/tony/dat
 time sudo python patternMining.py --read /home/tony/datas/2019-05-01/Main/AS/AS16509.hex --write /home/tony/datas/2019-05-01/Main/AS/AS16509.hex.target.noexperience --budgets 10000 100000 1000000 10000000 --depth 4 --experience=False
 
 mining /home/tony/datas/2019-05-01/Main/AS/AS16509.hex
-Traceback (most recent call last):
-  File "patternMining.py", line 393, in <module>
-    process(IPs, args.budgets, args.depth, args.write)
-  File "patternMining.py", line 321, in process
-    currentRange, skipped = expand(buckets[currentBucket][0], buckets, currentRange)
-  File "patternMining.py", line 136, in expand
-    bestBegin, patternIndex, patternCount = findBestBegin(IPs, array, maxLength)
-  File "patternMining.py", line 112, in findBestBegin
-    pattern_Index[v[0]] = -1    
-MemoryError
+
 
 real	59m30.542s
 user	59m22.755s
